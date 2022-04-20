@@ -63,10 +63,10 @@
       "yarn run check-format",
       "yarn run fix-lint",
       "yarn run check-lint",
-      "yarn run test-all",
       "yarn run build",
       "yarn run env:example",
       "yarn run env:to_base_64",
+      "yarn run test-all",
       "git add ."
     ]
   }
