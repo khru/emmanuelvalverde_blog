@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  emmanuelvalverde_blog:
+    container_name: ${NODE_CONTAINER_NAME}
+    image: node:${NODE_VERSION}
+    working_dir: ${WORKING_DIR}
+    env_file:
+      - ".env"
+    volumes:
+      - ./:${WORKING_DIR}
+    ports:
+      - ${NODE_PORT}:${NODE_PORT}
+    environment:
+      - PORT=${NODE_PORT}
+    command: sh -c "yarn install && yarn run dev"
