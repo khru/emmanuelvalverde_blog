@@ -26,7 +26,7 @@
     "docker:cypress": "yarn run permissions && ./scripts/docker/cypress.sh",
     "permissions": "find . -maxdepth 2 -type d -name \"scripts\" | xargs sudo chmod -R +x && sudo chown -R $USER .",
     "env:example": "yarn run permissions && ./scripts/generate_env_example.sh",
-    "env:to_base_64": "yarn run permissions && ./scripts/env_files_to_64.sh > env_base64",
+    "env:to_base_64": "yarn run permissions && ./scripts/env_files_to_64.sh",
     "env:base_64_to_env": "npm yarn permissions && ./scripts/base_64_to_env.sh",
     "lint-staged": "lint-staged"
   },
