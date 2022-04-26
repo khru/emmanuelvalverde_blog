@@ -29,3 +29,5 @@ jobs:
         run: yarn run test
       # - name: E2E tests
       #   run: yarn run cypress:headless
+      - name: Build project
+        run: yarn run build
