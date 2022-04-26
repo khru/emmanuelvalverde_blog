@@ -1,6 +1,3 @@
-env:
-  NODE_VERSION: 16
-
 name: CI/CD
 on:
   push:
@@ -16,10 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$NODE_VERSION"
+      - name: Install Node 16
         uses: actions/setup-node@v2
         with:
-          node-version: "$NODE_VERSION"
+          node-version: 16
       - name: Installing dependencies
         run: yarn install
       - name: Build project
@@ -37,10 +34,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$NODE_VERSION"
+      - name: Install Node 16
         uses: actions/setup-node@v2
         with:
-          node-version: "$NODE_VERSION"
+          node-version: 16
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
@@ -64,10 +61,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$NODE_VERSION"
+      - name: Install Node 16
         uses: actions/setup-node@v2
         with:
-          node-version: "$NODE_VERSION"
+          node-version: 16
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
@@ -86,10 +83,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$NODE_VERSION"
+      - name: Install Node 16
         uses: actions/setup-node@v2
         with:
-          node-version: "$NODE_VERSION"
+          node-version: 16
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
