@@ -14,12 +14,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Installing devDependencies
-        run: npm install
+      - name: Installing dependencies
+        run: yarn install
       - name: Lint
         run: |
-          "npm run lint"
-          "npm run format",
-          "npm run fix-lint",
-          "npm run check-format",
-          "npm run check-lint",
+          yarn run lint
+          yarn run format
+          yarn run fix-lint
+          yarn run check-format
+          yarn run check-lint
