@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { version } from '../../../package.json';
 
 type Data = {
-  name: string;
+  version: string;
 };
 
 export default function handler(
