@@ -16,10 +16,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$RESOURCE_GROUP"
+      - name: Install Node "$NODE_VERSION"
         uses: actions/setup-node@v2
         with:
-          node-version: "$RESOURCE_GROUP"
+          node-version: "$NODE_VERSION"
       - name: Installing dependencies
         run: yarn install
       - name: Build project
@@ -37,10 +37,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$RESOURCE_GROUP"
+      - name: Install Node "$NODE_VERSION"
         uses: actions/setup-node@v2
         with:
-          node-version: "$RESOURCE_GROUP"
+          node-version: "$NODE_VERSION"
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
@@ -64,10 +64,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$RESOURCE_GROUP"
+      - name: Install Node "$NODE_VERSION"
         uses: actions/setup-node@v2
         with:
-          node-version: "$RESOURCE_GROUP"
+          node-version: "$NODE_VERSION"
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
@@ -86,10 +86,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node "$RESOURCE_GROUP"
+      - name: Install Node "$NODE_VERSION"
         uses: actions/setup-node@v2
         with:
-          node-version: "$RESOURCE_GROUP"
+          node-version: "$NODE_VERSION"
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
