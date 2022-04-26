@@ -25,9 +25,9 @@ jobs:
           yarn run fix-lint
           yarn run check-format
           yarn run check-lint
+      - name: Build project
+        run: yarn run build
       - name: Unit test
         run: yarn run test
       # - name: E2E tests
       #   run: yarn run cypress:headless
-      - name: Build project
-        run: yarn run build
