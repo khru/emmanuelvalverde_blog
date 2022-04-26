@@ -23,3 +23,7 @@ jobs:
           yarn run fix-lint
           yarn run check-format
           yarn run check-lint
+      - name: Unit test
+        run: yarn run test
+      - name: E2E tests
+        run: yarn run cypress:headless
