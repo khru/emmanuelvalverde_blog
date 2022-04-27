@@ -41,3 +41,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Documentation
 
 - [📚 GitHub Actions TUTORIAL Desde Cero - Integración continua (CI/CD) gratis y fácil 🚀](https://youtu.be/sIhm4YOMK6Q)
+- [An App with Next.js](https://www.youtube.com/playlist?list=PLXI-025xKZRNM2n7aGpbMyhJRr3YRfIuN)
