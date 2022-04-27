@@ -25,6 +25,11 @@ jobs:
         with:
           name: .next
           path: .next
+      - name: Store node_modules into an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: node_modules
+          path: node_modules
 
   lint:
     needs: [build]
@@ -37,8 +42,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Installing dependencies
-        run: yarn install
+      - name: Download node_modules from an artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: node_modules
+          path: node_modules
       - name: Download build from an artifact
         uses: actions/download-artifact@v2
         with:
@@ -64,8 +72,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Installing dependencies
-        run: yarn install
+      - name: Download node_modules from an artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: node_modules
+          path: node_modules
       - name: Download build from an artifact
         uses: actions/download-artifact@v2
         with:
@@ -86,8 +97,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-      - name: Installing dependencies
-        run: yarn install
+      - name: Download node_modules from an artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: node_modules
+          path: node_modules
       - name: Download build from an artifact
         uses: actions/download-artifact@v2
         with:
@@ -95,9 +109,12 @@ jobs:
           path: .next
       - name: Start app on local configuration
         run: yarn run start
-      - name: E2E tests
-        run: yarn run cypress:headless
-
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn start
+          browser: chrome
+          headless: true
   deploy:
     needs: [build, lint, unit_test, E2E_test]
     runs-on: ubuntu-latest
