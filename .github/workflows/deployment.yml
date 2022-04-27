@@ -6,103 +6,100 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
 
-  build:
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Node 16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - name: Installing dependencies
-        run: yarn install
-      - name: Build project
-        run: yarn run build
-      - name: Store build into an artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: .next
-          path: .next
+  # build:
+  #   runs-on: ubuntu-latest
+  #   if: "!contains(github.event.head_commit.message, '[skip ci]')"
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Install Node 16
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16
+  #     - name: Installing dependencies
+  #       run: yarn install
+  #     - name: Build project
+  #       run: yarn run build
+  #     - name: Store build into an artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: .next
+  #         path: .next
 
-  lint:
-    needs: [build]
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Node 16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - name: Installing dependencies
-        run: yarn install
-      - name: Download build from an artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: .next
-          path: .next
-      - name: Lint
-        run: |
-          yarn run lint
-          yarn run format
-          yarn run fix-lint
-          yarn run check-format
-          yarn run check-lint
-
-
-  unit_test:
-    needs: [build, lint]
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Node 16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - name: Installing dependencies
-        run: yarn install
-      - name: Download build from an artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: .next
-          path: .next
-      - name: Unit test
-        run: yarn run test
+  # lint:
+  #   needs: [build]
+  #   runs-on: ubuntu-latest
+  #   if: "!contains(github.event.head_commit.message, '[skip ci]')"
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Install Node 16
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16
+  #     - name: Installing dependencies
+  #       run: yarn install
+  #     - name: Download build from an artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: .next
+  #         path: .next
+  #     - name: Lint
+  #       run: |
+  #         yarn run lint
+  #         yarn run format
+  #         yarn run fix-lint
+  #         yarn run check-format
+  #         yarn run check-lint
 
 
-  E2E_test:
-    needs: [build, lint]
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Node 16
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - name: Installing dependencies
-        run: yarn install
-      - name: Download build from an artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: .next
-          path: .next
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          start: yarn run e2e
-          browser: chrome
-          headless: true
+  # unit_test:
+  #   needs: [build, lint]
+  #   runs-on: ubuntu-latest
+  #   if: "!contains(github.event.head_commit.message, '[skip ci]')"
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Install Node 16
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16
+  #     - name: Installing dependencies
+  #       run: yarn install
+  #     - name: Download build from an artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: .next
+  #         path: .next
+  #     - name: Unit test
+  #       run: yarn run test
+
+
+  # E2E_test:
+  #   needs: [build, lint]
+  #   runs-on: ubuntu-latest
+  #   if: "!contains(github.event.head_commit.message, '[skip ci]')"
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Install Node 16
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16
+  #     - name: Installing dependencies
+  #       run: yarn install
+  #     - name: Download build from an artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: .next
+  #         path: .next
+  #     - name: Run E2E test on headless chrome
+  #       run: yarn run e2e
+
   deploy:
     needs: [build, lint, unit_test, E2E_test]
     runs-on: ubuntu-latest
-    if: ${{ (github.event.name == 'push') }}
+    if: ${{ (github.event_name == 'push') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true) }}
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.9.1
