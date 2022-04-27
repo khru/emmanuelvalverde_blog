@@ -22,6 +22,7 @@
     "prepare": "husky install",
     "docker:cypress-install": "yarn run permissions && ./scripts/docker/cypress_install.sh",
     "docker:dev": "docker-compose up",
+    "docker:dev-detach": "docker-compose up -d",
     "docker:stop": "docker-compose stop",
     "docker:logs": "docker-compose logs -f -t",
     "docker:lint": "yarn run permissions && ./scripts/docker/lint.sh",
