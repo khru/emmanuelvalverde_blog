@@ -94,7 +94,7 @@ jobs:
           name: .next
           path: .next
       - name: Start app on local configuration
-        uses: yarn run start
+        run: yarn run start
       - name: E2E tests
         run: yarn run cypress:headless
 
