@@ -93,12 +93,9 @@ jobs:
         with:
           name: .next
           path: .next
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          start: yarn run e2e
-          browser: chrome
-          headless: true
+      - name: Run E2E test on headless chrome
+        run: yarn run e2e
+
   deploy:
     needs: [build, lint, unit_test, E2E_test]
     runs-on: ubuntu-latest
