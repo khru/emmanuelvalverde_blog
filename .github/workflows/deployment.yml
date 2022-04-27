@@ -93,13 +93,15 @@ jobs:
         with:
           name: .next
           path: .next
+      - name: Start app on local configuration
+        uses: yarn run start
       - name: E2E tests
         run: yarn run cypress:headless
 
   deploy:
     needs: [build, lint, unit_test, E2E_test]
     runs-on: ubuntu-latest
-    if: ${{github.event.name == 'push'}}
+    if: ${{ (github.event.name == 'push') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true) }}
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.9.1
