@@ -93,8 +93,6 @@ jobs:
         with:
           name: .next
           path: .next
-      - name: Start app on local configuration
-        run: yarn run start
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
