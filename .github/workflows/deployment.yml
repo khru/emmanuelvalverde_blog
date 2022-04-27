@@ -98,7 +98,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: (yarn run start&)
+          start: yarn run e2e
           browser: chrome
           headless: true
   deploy:
