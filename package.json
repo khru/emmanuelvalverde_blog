@@ -10,7 +10,7 @@
     "lint": "next lint",
     "e2e": "start-server-and-test start http://localhost:3000 cypress:headless",
     "test": "jest  --verbose --coverage --updateSnapshot --notify --passWithNoTests",
-    "test:watch": ".jest --watchAll --notify='true' --verbose --coverage --updateSnapshot",
+    "test:watch": "jest --watchAll --notify='true' --verbose --coverage --updateSnapshot",
     "test-all": "yarn run test && yarn run cypress:headless",
     "pre-commit": "yarn run lint && yarn run format && yarn run fix-lint && yarn run check-format && yarn run check-lint && yarn run build && yarn run env:example && yarn run env:to_base_64 && yarn run test-all",
     "cypress": "cypress open",
@@ -37,7 +37,8 @@
   "dependencies": {
     "next": "12.1.5",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "sass": "^1.51.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
