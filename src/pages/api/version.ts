@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { version } from '../../../package.json';
+import { version } from "../../../package.json";
 
 type Data = {
   version: string;

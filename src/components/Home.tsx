@@ -12,14 +12,11 @@ export const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to my website!
-        </h1>
+        <h1 className={styles.title}>Welcome to my website!</h1>
 
         <p className={styles.description}>
           <code className={styles.code}>Hello world</code>
         </p>
-
       </main>
     </div>
   );

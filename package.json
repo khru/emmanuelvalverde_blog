@@ -19,7 +19,7 @@
     "check-format": "prettier --check ./src",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "fix-lint": "eslint --fix ./src/**/*.{js,ts}; exit 0",
-    "format": "yarn run permissions && prettier --write ./src/**/*.{js,jsx,css,json,scss,ts,css,sass,less}",
+    "format": "yarn run permissions && prettier --write ./src/**/*.{js,jsx,css,json,scss,ts,css,sass,less,tsx}",
     "prepare": "husky install",
     "docker:cypress-install": "yarn run permissions && ./scripts/docker/cypress_install.sh",
     "docker:dev": "docker-compose up",

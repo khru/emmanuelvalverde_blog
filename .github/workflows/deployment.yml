@@ -5,7 +5,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-
   build:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
@@ -52,7 +51,6 @@ jobs:
           yarn run check-format
           yarn run check-lint
 
-
   unit_test:
     needs: [build, lint]
     runs-on: ubuntu-latest
@@ -73,7 +71,6 @@ jobs:
           path: .next
       - name: Unit test
         run: yarn run test
-
 
   E2E_test:
     needs: [build, lint]
@@ -112,6 +109,6 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           github-token: ${{ secrets.GH_TOKEN }} #Optional
-          vercel-args: '--prod' #Optional
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
+          vercel-args: "--prod" #Optional
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
