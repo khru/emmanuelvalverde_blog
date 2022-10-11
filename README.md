@@ -42,3 +42,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - [📚 GitHub Actions TUTORIAL Desde Cero - Integración continua (CI/CD) gratis y fácil 🚀](https://youtu.be/sIhm4YOMK6Q)
 - [An App with Next.js](https://www.youtube.com/playlist?list=PLXI-025xKZRNM2n7aGpbMyhJRr3YRfIuN)
+- [NextJS testing with Cypress and Cucumber (react framework)](https://youtu.be/JYy3g_tHm9I)
+- [How to integrate Cypress and Cucumber in your development flow in just a few weeks.](https://itortv.medium.com/how-to-integrate-cypress-and-cucumber-in-your-development-flow-in-just-a-few-weeks-96a46ac9165a)
+- [How to share data between step definitions](https://github.com/badeball/cypress-cucumber-preprocessor/pull/74/files)

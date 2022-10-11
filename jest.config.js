@@ -11,7 +11,7 @@ const customJestConfig = {
   clearMocks: true,
   moduleDirectories: ["node_modules", "src"],
   testPathIgnorePatterns: ["<rootDir>/cypress/"],
-  setupFileAfterEnv: ["<rootDir>/src/test/setupTests.ts"],
+  // setupFileAfterEnv: ["<rootDir>/src/test/setupTests.ts"],
 };
 
 module.exports = createJestConfig(customJestConfig);

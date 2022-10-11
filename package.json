@@ -8,13 +8,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "e2e": "start-server-and-test start http://localhost:3000 cypress:headless",
+    "e2e": "yarn build && start-server-and-test start http://localhost:3000 cypress:headless",
     "test": "jest  --verbose --coverage --updateSnapshot --notify --passWithNoTests",
     "test:watch": "jest --watchAll --notify='true' --verbose --coverage --updateSnapshot",
     "test-all": "yarn run test && yarn run cypress:headless",
     "pre-commit": "yarn run lint && yarn run format && yarn run fix-lint && yarn run check-format && yarn run check-lint && yarn run build && yarn run env:example && yarn run env:to_base_64 && yarn run test-all",
     "cypress": "cypress open",
-    "cypress:headless": "cypress run",
+    "cypress:headless": "cypress run --spec **/*.{feature,features,spec.js}",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check ./src",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
@@ -35,9 +35,9 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "next": "12.1.5",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "next": "12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.51.0"
   },
   "devDependencies": {
@@ -49,6 +49,7 @@
     "@types/react-dom": "18.0.1",
     "autoprefixer": "^10.4.5",
     "cypress": "^9.5.4",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "^8.5.0",
@@ -81,5 +82,8 @@
       "yarn run test-all",
       "git add ."
     ]
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
