@@ -82,8 +82,7 @@
       "yarn run build",
       "yarn run env:example",
       "yarn run env:to_base_64",
-      "yarn run test-all",
-      "git add ."
+      "yarn run test-all"
     ]
   },
   "cypress-cucumber-preprocessor": {
