@@ -41,7 +41,6 @@
     "sass": "^1.51.0"
   },
   "devDependencies": {
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
