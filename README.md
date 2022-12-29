@@ -38,6 +38,12 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## To skip the CI
+run the following command
+```shell
+[skip ci]
+```
+
 ## Documentation
 
 - [📚 GitHub Actions TUTORIAL Desde Cero - Integración continua (CI/CD) gratis y fácil 🚀](https://youtu.be/sIhm4YOMK6Q)
