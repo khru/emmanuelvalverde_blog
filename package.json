@@ -14,7 +14,7 @@
     "test-all": "yarn run test && yarn run cypress:headless",
     "pre-commit": "yarn run lint && yarn run format && yarn run fix-lint && yarn run check-format && yarn run check-lint && yarn run build && yarn run env:example && yarn run env:to_base_64 && yarn run test-all",
     "cypress": "cypress open",
-    "cypress:headless": "cypress run --spec **/*.{feature,features,spec.js}",
+    "cypress:headless": "cypress run --spec **/*.{feature,features,cy.js}",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check ./src",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
@@ -35,12 +35,14 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "next": "12",
+    "next": "^13.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.51.0"
   },
   "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "@cypress/browserify-preprocessor": "^3.0.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@types/jest": "^27.4.1",
@@ -48,20 +50,21 @@
     "@types/react": "18.0.5",
     "@types/react-dom": "18.0.1",
     "autoprefixer": "^10.4.5",
-    "cypress": "^9.5.4",
+    "cypress": "^12.2.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "8.13.0",
-    "eslint-config-next": "12.1.5",
+    "eslint-config-next": "^13.1.1",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^7.0.0",
     "jest": "^27.5.1",
     "node-notifier": "^10.0.1",
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",
+    "standard": "^17.0.0",
     "start-server-and-test": "^1.14.0",
     "tailwindcss": "^3.0.24",
     "ts-jest": "^27.1.4",
-    "typescript": "4.6.3",
+    "typescript": "^4.9.4",
     "vercel": "^24.1.0"
   },
   "husky": {
@@ -84,6 +87,7 @@
     ]
   },
   "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "./cypress/e2e",
     "nonGlobalStepDefinitions": true
   }
 }
