@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node 16
+      - name: Install Node 18
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
       - name: Installing dependencies
         run: yarn install
       - name: Build project
@@ -32,10 +32,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node 16
+      - name: Install Node 18
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
@@ -58,10 +58,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node 16
+      - name: Install Node 18
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
@@ -79,10 +79,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Node 16
+      - name: Install Node 18
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 18
       - name: Installing dependencies
         run: yarn install
       - name: Download build from an artifact
